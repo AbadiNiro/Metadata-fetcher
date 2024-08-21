@@ -85,7 +85,7 @@ function App() {
       <div className='metadata-container'>
         {metadata.length > 0 && (metadata.map((meta, ind) =>
 
-          <MetadataBox meta={meta} index={ind} key={ind} />)
+          <MetadataBox meta={meta} index={ind} urls={urls} key={ind} />)
         )}
       </div>
     </div>
