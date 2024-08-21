@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+URL Metadata Fetcher
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Overview
+URL Metadata Fetcher is a MERN stack application designed to fetch and display metadata from a list of URLs. The app features CSRF token validation for enhanced security and includes rate limiting to control the frequency of requests. Users can fetch metadata from 3 to 10 URLs per request.
 
-## Available Scripts
+Features
+Fetch metadata (title, description, etc.) from multiple URLs
+CSRF token validation for secure requests
+Rate limiting to manage request frequency
+Flexible URL input (3 to 10 URLs)
+Technologies Used
+Express: Server framework for handling API requests and responses
+React: Frontend framework for building the user interface
+Node.js: JavaScript runtime for server-side logic
+Getting Started
+Prerequisites
+Node.js and npm (or yarn) installed
+Basic knowledge of JavaScript, React, and Express
+Installation
+Clone the repository:
 
-In the project directory, you can run:
+### git clone https://github.com/yourusername/url-metadata-fetcher.git
 
-### `npm start`
+### cd url-metadata-fetcher
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Install server dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### cd backend
 
-### `npm test`
+### npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install client dependencies:
 
-### `npm run build`
+### cd ../frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Setup environment variables:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a .env file in the frontend directory with the following content:
 
-### `npm run eject`
+REACT_APP_API_HOST
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Start the server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### cd server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Start the client:
 
-## Learn More
+### cd ../frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Usage
 
-### Code Splitting
+Access the application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Open your web browser and navigate to http://localhost:3000 to access the app.
 
-### Analyzing the Bundle Size
+Fetch Metadata:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Enter 3 to 10 URLs in the provided input field.
+Submit the form to fetch metadata from the specified URLs.
+The app will display metadata such as title, description, and more for each URL.
+CSRF Token Validation
+To enhance security, the app includes CSRF token validation. Ensure that the CSRF token is included in the headers of your requests. The token is automatically handled by the client-side React application.
 
-### Making a Progressive Web App
+Rate Limiting
+To prevent abuse, the app enforces rate limits on requests. Ensure you do not exceed the maximum request frequency allowed. The default rate limit settings can be adjusted in the server/config/rateLimit.js file.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+API Endpoints
+POST /api/fetch-metadata - Fetch metadata from the specified URLs
+Request Body: { urls: [array of URLs] }
+Response: Metadata information for the provided URLs
+Troubleshooting
+Client Issues: Inspect browser console for JavaScript errors. Verify that the React application is correctly configured.
+Contributing
+Contributions are welcome! Please follow the standard GitHub workflow for submitting issues and pull requests. Ensure your code adheres to the project's coding standards and includes appropriate tests.
